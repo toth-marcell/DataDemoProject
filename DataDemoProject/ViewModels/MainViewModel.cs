@@ -13,6 +13,7 @@ public partial class MainViewModel : ViewModelBase
     public RelayCommand AddCommand { get; set; }
     public ObservableCollection<Car> Cars { get; set; }
     readonly MainModel MainModel;
+    public MainViewModel() { }
     public MainViewModel(MainModel model)
     {
         MainModel = model;
