@@ -1,0 +1,52 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:DataDemoProject.ViewModels"
+			 xmlns:datademoproject="using:DataDemoProject"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="DataDemoProject.Views.MainView"
+             x:DataType="vm:MainViewModel">
+	<Design.DataContext>
+		<!-- This only sets the DataContext for the previewer in an IDE,
+         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+		<vm:MainViewModel />
+	</Design.DataContext>
+	<Grid Margin="20">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width=".7*"/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width=".3*"/>
+				<ColumnDefinition Width=".5*"/>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="auto"/>
+				<RowDefinition Height="auto"/>
+				<RowDefinition Height="auto"/>
+				<RowDefinition Height="auto"/>
+				<RowDefinition Height="auto"/>
+			</Grid.RowDefinitions>
+			<Label HorizontalAlignment="Center" Margin="0,5">Make</Label>
+			<TextBox Grid.Column="1" Text="{Binding Make}" Margin="0,5"/>
+			<Label Grid.Row="1" HorizontalAlignment="Center" Margin="0,5">Model</Label>
+			<TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Model}" Margin="0,5"/>
+			<Label Grid.Row="2" HorizontalAlignment="Center" Margin="0,5">Year</Label>
+			<TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Year}" Margin="0,5"/>
+			<Label Grid.Row="3" HorizontalAlignment="Center" Margin="0,5">Type</Label>
+			<TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Type}" Margin="0,5"/>
+			<Button Grid.Row="4" Grid.ColumnSpan="2" Command="{Binding AddCommand}" MinWidth="200" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Margin="0,10">Add</Button>
+		</Grid>
+		<ScrollViewer Grid.Column="1">
+			<ItemsControl ItemsSource="{Binding Cars}" Margin="30,0">
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<datademoproject:DataCard/>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+		</ScrollViewer>
+	</Grid>
+</UserControl>

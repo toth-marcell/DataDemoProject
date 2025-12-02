@@ -1,0 +1,26 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="DataDemoProject.DataCard">
+	<Border BorderBrush="Black" BorderThickness="1" Margin="5" Padding="5">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition Width="auto"/>
+			</Grid.ColumnDefinitions>
+			<Label Content="{Binding Make, StringFormat='Make: {0}'}"/>
+			<Label Content="{Binding Model, StringFormat='Model: {0}'}" Grid.Row="1"/>
+			<Label Content="{Binding Year, StringFormat='Year: {0}'}" Grid.Row="2"/>
+			<Label Content="{Binding Type, StringFormat='Type: {0}'}" Grid.Row="3"/>
+			<Button Grid.Column="1" Grid.RowSpan="4" VerticalAlignment="Top" Background="Red" Foreground="White" Command="{Binding DeleteCommand}">X</Button>
+		</Grid>
+	</Border>
+</UserControl>
